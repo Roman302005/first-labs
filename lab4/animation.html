@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лелюх Роман Вячеславович. Анимация</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-16x16.png">
+    <style>
+
+    header {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 100
+      }
+
+    .tag-cloud {
+      position: relative;
+      height: calc(100vh - 80px);
+    }
+
+    .tag-wrapper {
+      position: absolute;
+      transform-origin: center;
+    }
+
+    .tag {
+      display: inline-block;
+      transition: transform 0.3s, text-shadow 0.3s, z-index 0.3s;
+      animation: float 10s infinite ease-in-out alternate;
+      animation-play-state: running;
+    }
+
+    .tag:hover {
+      transform: scale(1.5);
+      z-index: 1000;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+      animation-play-state: paused;
+    }
+
+    @keyframes float {
+      0%   { transform: translate(0, 0) rotate(0deg); }
+      25%  { transform: translate(5px, -10px) rotate(2deg); }
+      50%  { transform: translate(-5px, 15px) rotate(-3deg); }
+      75%  { transform: translate(10px, -10px) rotate(2deg); }
+      100% { transform: translate(0, 0) rotate(0deg); }
+    }
+
+    .tag1  { animation-duration: 6s; animation-delay: 1s; }
+    .tag2  { animation-duration: 6s; animation-delay: 1s; }
+    .tag3  { animation-duration: 14s; animation-delay: 2s; }
+    .tag4  { animation-duration: 8s; animation-delay: 0.5s; }
+    .tag5  { animation-duration: 12s; animation-delay: 1.2s; }
+    .tag6  { animation-duration: 6s; animation-delay: 2s; }
+    .tag7  { animation-duration: 12s; animation-delay: 0.8s; }
+    .tag8  { animation-duration: 16s; animation-delay: 1.4s; }
+    .tag9  { animation-duration: 10s; animation-delay: 1s; }
+    .tag10 { animation-duration: 8s; animation-delay: 1.9s; }
+    .tag11 { animation-duration: 18s; animation-delay: 1.4s; }
+    .tag12 { animation-duration: 8s; animation-delay: 0.2s; }
+    .tag13 { animation-duration: 12s; animation-delay: 1s; }
+    .tag14 { animation-duration: 8s; animation-delay: 1.4s; }
+    .tag15 { animation-duration: 12s; animation-delay: 0.6s; }
+  </style>
+</head>
+<body>
+
+<header>
+  НГТУ, ФБ, Лабораторная работа 4
+</header>
+
+<div class="tag-cloud">
+  <span class="tag-wrapper" style="top: 10%; left: 20%; transform: rotate(-5deg);">
+    <span class="tag" style="color: pink; font-size: 32px;">Progress</span>
+  </span>
+  <span class="tag-wrapper" style="top: 20%; left: 40%; transform: rotate(4deg);">
+    <span class="tag" style="color: deepskyblue; font-size: 28px;">overflow</span>
+  </span>
+  <span class="tag-wrapper" style="top: 20%; left: 70%; transform: rotate(-5deg);">
+    <span class="tag" style="color: yellowgreen; font-size: 48px;">Button</span>
+  </span>
+  <span class="tag-wrapper" style="top: 30%; left: 30%; transform: rotate(-50deg);">
+    <span class="tag" style="color: darkblue; font-size: 20px;">hold</span>
+  </span>
+  <span class="tag-wrapper" style="top: 30%; left: 60%; transform: rotate(12deg);">
+    <span class="tag" style="color: rgb(255, 255, 255); font-size: 72px;">Fill</span>
+  </span>
+  <span class="tag-wrapper" style="top: 45%; left: 10%; transform: rotate(-10deg);">
+    <span class="tag" style="color: lime; font-size: 64px;">interval</span>
+  </span>
+  <span class="tag-wrapper" style="top: 60%; left: 80%; transform: rotate(-15deg);">
+    <span class="tag" style="color: orange; font-size: 102px;">Event</span>
+  </span>
+  <span class="tag-wrapper" style="top: 65%; left: 50%; transform: rotate(0deg);">
+    <span class="tag" style="color: yellow; font-size: 36px;">Style</span>
+  </span>
+  <span class="tag-wrapper" style="top: 75%; left: 25%; transform: rotate(8deg);">
+    <span class="tag" style="color: red; font-size: 28px;">width</span>
+  </span>
+  <span class="tag-wrapper" style="top: 30%; left: 80%; transform: rotate(10deg);">
+    <span class="tag" style="color: magenta; font-size: 44px;">User</span>
+  </span>
+  <span class="tag-wrapper" style="top: 55%; left: 35%; transform: rotate(-10deg);">
+    <span class="tag" style="color: green; font-size: 22px;">Interaction</span>
+  </span>
+  <span class="tag-wrapper" style="top: 20%; left: 30%; transform: rotate(2deg);">
+    <span class="tag" style="color: yellow; font-size: 26px;">State</span>
+  </span>
+  <span class="tag-wrapper" style="top: 45%; left: 60%; transform: rotate(6deg);">
+    <span class="tag" style="color: blue; font-size: 20px;">Absolute</span>
+  </span>
+  <span class="tag-wrapper" style="top: 75%; left: 70%; transform: rotate(0deg);">
+    <span class="tag" style="color: lightcoral; font-size: 24px;">Control</span>
+  </span>
+  <span class="tag-wrapper" style="top: 80%; left: 40%; transform: rotate(0deg);">
+    <span class="tag" style="color: gainsboro; font-size: 48px;">Visualization</span>
+  </span>
+</div>
+  
+  <footer>
+    &copy; Лелюх Роман, ФБИ-34, 2 курс, 2024 
+  </footer>
+
+</body>
+</html>
