@@ -33,7 +33,7 @@ a:active {
 }
 
 div.menu {
-    border: 7px solid #ff00c8;
+    border: 7px solid #0084ff;
     border-radius: 5px;
     width: 300px;
     margin: 0 auto;
@@ -41,7 +41,7 @@ div.menu {
 
 div.menu:hover {
     background-color: #ffffff ;
-    box-shadow: 0 0 15px #ffffff80;
+    box-shadow: 0 0 15px #1d1d1d80;
 }
 
 h1 {
@@ -49,8 +49,8 @@ h1 {
 }
 
 footer {
-    background-color: rgb(71, 71, 71);
-    color: black;
+    background-color: rgb(103, 105, 105);
+    color: rgb(255, 255, 255);
     font-family: Arial;
     margin: 0px;
     text-align:right ;
