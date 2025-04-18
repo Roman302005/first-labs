@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Зубрицкий И. Лабораторная 4</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-16x16.png">
+    <style>
+        
+        footer, header {
+            z-index: 100;
+        }
+        
+        div {
+            width: 300px;
+            height: 70px;
+            line-height: 70px;
+            text-align: center;
+            background-color: rgb(73, 73, 73);
+            border: 1px dotted rgb(47, 0, 255);
+            margin: 15px;
+            z-index: 5;
+            position: relative;
+        }
+        .position-relative {
+            position: relative;
+            left: -14px;
+            top: -45px;
+            z-index: -1;
+        }
+        .position-relative:hover {
+            z-index: 10;
+        }
+        .position-absolute {
+            position: absolute;
+            left: 300px;
+        }
+        .position-absolute:hover {
+            width: 700px;
+            height: 140px;
+            padding: 15px;
+            background: #2b2b2b;
+            box-shadow: 5px 5px 15px rgba(3, 3, 3, 0.3);
+            border-radius: 15px;
+            transition: 1s;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Позиционирование 
+        <hr>
+    </header>
+    
+    <main>
+        <div>static</div>
+        <div>static</div>
+        <div class="position-relative">relative</div>
+        <div>static</div>
+        <div>static</div>
+        <div class="position-absolute">absolute</div>
+        <div>static</div>
+        <div>static</div>
+        <div>static</div>
+        <div>static</div>
+        <div>static</div>
+
+    </main>
+
+    <footer>
+        &copy; Зубрицкий Илья, ФБИ-34, 2 курс, 2025
+    </footer>
+</body>
+</html>
