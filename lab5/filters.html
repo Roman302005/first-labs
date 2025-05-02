@@ -22,7 +22,47 @@
             document.getElementById('blurOutput').innerText = value;
             document.getElementById('blurImage').style.filter = 'blur(' + value +')';
         }
+        function brightnessChange(){
+            let value = document.getElementById('brightnessValue').value + '%';
+            document.getElementById('brightnessOutput').innerText = value;
+            document.getElementById('brightnessImage').style.filter = 'brightness(' + value +')';
+        }
 
+        function contrastChange(){
+            let value = document.getElementById('contrastValue').value + '%';
+            document.getElementById('contrastOutput').innerText = value;
+            document.getElementById('contrastImage').style.filter = 'contrast(' + value +')';
+        }
+
+        function grayscaleChange(){
+            let value = document.getElementById('grayscaleValue').value + '%';
+            document.getElementById('grayscaleOutput').innerText = value;
+            document.getElementById('grayscaleImage').style.filter = 'grayscale(' + value +')';
+        }
+
+        function hueRotateChange(){
+            let value = document.getElementById('hueRotateValue').value + 'deg';
+            document.getElementById('hueRotateOutput').innerText = value;
+            document.getElementById('hueRotateImage').style.filter = 'hue-rotate(' + value +')';
+        }
+
+        function invertChange(){
+            let value = document.getElementById('invertValue').value + '%';
+            document.getElementById('invertOutput').innerText = value;
+            document.getElementById('invertImage').style.filter = 'invert(' + value +')';
+        }
+
+        function saturateChange(){
+            let value = document.getElementById('saturateValue').value + '%';
+            document.getElementById('saturateOutput').innerText = value;
+            document.getElementById('saturateImage').style.filter = 'saturate(' + value +')';
+        }
+
+        function sepiaChange(){
+            let value = document.getElementById('sepiaValue').value + '%';
+            document.getElementById('sepiaOutput').innerText = value;
+            document.getElementById('sepiaImage').style.filter = 'sepia(' + value +')';
+        }
 
     </script>
 
@@ -32,6 +72,49 @@
         </header>
 
         <main>
+
+            <div>
+                brightness:
+                <input type="range" value="100" min="0" max="500" step="1" onchange="brightnessChange()" id="brightnessValue">
+                <span id="brightnessOutput"></span>
+            </div>
+
+            <div>
+                contrast:
+                <input type="range" value="100" min="0" max="500" step="1" onchange="contrastChange()" id="contrastValue">
+                <span id="contrastOutput"></span>
+            </div>
+
+            <div>
+                grayscale:
+                <input type="range" value="0" min="0" max="100" step="1" onchange="grayscaleChange()" id="grayscaleValue">
+                <span id="grayscaleOutput"></span>
+            </div>
+
+            <div>
+                hue-rotate:
+                <input type="range" value="0" min="0" max="360" step="1" onchange="hueRotateChange()" id="hueRotateValue">
+                <span id="hueRotateOutput"></span>
+            </div>
+
+            <div>
+                invert:
+                <input type="range" value="0" min="0" max="100" step="1" onchange="invertChange()" id="invertValue">
+                <span id="invertOutput"></span>
+            </div>
+
+            <div>
+                saturate:
+                <input type="range" value="100" min="0" max="500" step="1" onchange="saturateChange()" id="saturateValue">
+                <span id="saturateOutput"></span>
+            </div>
+
+            <div>
+                sepia:
+                <input type="range" value="0" min="0" max="100" step="1" onchange="sepiaChange()" id="sepiaValue">
+                <span id="sepiaOutput"></span>
+            </div>
+            
             <div>
                 blur:
                 <input type="range"  value="0" min="0" max="20" onchange="blurChange()" id="blurValue">
@@ -43,6 +126,13 @@
 
             <div class="img">
                 <img src="123.jpg" id="blurImage">
+                <img src="123.jpg" id="brightnessImage">
+                <img src="123.jpg"id="contrastImage">
+                <img src="123.jpg" id="grayscaleImage">
+                <img src="123.jpg"id="hueRotateImage">
+                <img src="123.jpg"id="invertImage">
+                <img src="123.jpg" id="saturateImage">
+                <img src="123.jpg" id="sepiaImage">
             </div>
         </main>
 
