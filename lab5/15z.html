@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Лелюх Роман Вячеславович. Лабораторная 5</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+</head>
+    <style>
+        img {
+            width: 400px;
+            transition: filter 0.2s;
+        }
+        .info {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+    <body>
+
+        <header>
+            НГТУ, ФБ, Лабораторная работа 5
+        </header>
+
+    <main>
+        <img src="123.jpg" id="image" onmousemove="applyFilter(event)">
+        <div class="info" id="filterInfo">ннет фильтра</div>
+        <p>разные фильтры</p>
+    </main>
+
+        <script>
+            function applyFilter(event) {
+                const image = document.getElementById('image');
+                const info = document.getElementById('filterInfo');
+                const rect = image.getBoundingClientRect();
+                const percent = (event.clientX - rect.left) / rect.width;
+
+                let filter = '';
+                let value = '';
+
+                if (event.ctrlKey) {
+                    const val = Math.round(percent * 500);
+                    filter = `brightness(${val}%)`;
+                    value = `brightness ${val}%`;
+                } else if (event.altKey) {
+                    const val = Math.round(percent * 100);
+                    filter = `grayscale(${val}%)`;
+                    value = `grayscale ${val}%`;
+                } else if (event.shiftKey) {
+                    const val = Math.round(percent * 360);
+                    filter = `hue-rotate(${val}deg)`;
+                    value = `hue-rotate ${val}°`;
+                } else {
+                    const val = Math.round(percent * 10);
+                    filter = `blur(${val}px)`;
+                    value = `blur ${val}px`;
+                }
+
+                image.style.filter = filter;
+                info.innerText = `Фильтр: ${value}`;
+            }
+        </script>
+
+    <footer>
+        &copy; Лелюх Роман, ФБИ-34, 2 курс, 2025
+    </footer>
+
+    </body>
+</html>
