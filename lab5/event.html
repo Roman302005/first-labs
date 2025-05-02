@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Лелюх Роман Вячеславович. Лабораторная 5</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="icon" href="../favicon-16x16.png">
+        <link rel="icon" href="../favicon-32x32.png">
+    </head>
+    <style>
+    #eventBlock {
+        width: 400px;
+        height: 400px;
+        border: 2px solid rgb(0, 0, 0);
+        background-color: #ffffff;
+
+        text-align: center;
+        line-height: 1.5;
+        padding-top: 10px;
+    }
+    </style>
+    
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>
+
+    <main>
+        <div id="eventBlock" onmousemove="showCoords(event)"></div>
+    </main>
+
+
+    <script>
+        function showCoords(event) {
+            const block = document.getElementById('eventBlock');
+            let msg = `X: ${event.offsetX}<br>Y: ${event.offsetY}`;
+
+            block.style.color = "black";
+            block.style.backgroundColor = "#eee";
+            block.style.border = "2px solid black";
+
+            if (event.ctrlKey) {
+                msg += "<br>Нажата клавиша Ctrl";
+                block.style.color = "red";
+            }
+            if (event.altKey) {
+                msg += "<br>Нажата клавиша Alt";
+                block.style.backgroundColor = "#ffd";
+            }
+            if (event.shiftKey) {
+                msg += "<br>Нажата клавиша Shift";
+                block.style.border = "2px dashed blue";
+            }
+
+            block.innerHTML = msg;
+        }
+
+
+    </script>
+    
+    <footer>
+        &copy; Лелюх Роман, ФБИ-34, 2 курс, 2025
+    </footer>
+</body>
+
+</html>
