@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Лелюх Роман Вячеславович. Лабораторная 5</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="icon" href="../favicon-16x16.png">
+        <link rel="icon" href="../favicon-32x32.png">
+        <style>
+            
+            .container {
+                max-width: 500px;
+                margin: 0 auto;
+                padding: 20px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+            
+            h1 {
+                text-align: center;
+                margin: 0 0 20px 0;
+                font-size: 1.5rem;
+                color: #000;
+            }
+            
+            .product {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 15px;
+                padding-bottom: 15px;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .product-name {
+                font-weight: bold;
+            }
+            
+            input[type="number"] {
+                width: 60px;
+                padding: 5px;
+                border: 1px solid #999;
+                border-radius: 3px;
+            }
+            
+            .buttons {
+                display: flex;
+                gap: 10px;
+                margin-top: 20px;
+            }
+            
+            button {
+                padding: 8px 0;
+                flex: 1;
+                border: none;
+                border-radius: 3px;
+                cursor: pointer;
+            }
+            
+            #calculate {
+                background: #d33;
+                color: white;
+            }
+            
+            #clear {
+                background: #39d;
+                color: white;
+            }
+            
+            #output {
+                margin-top: 15px;
+                padding: 10px;
+                text-align: center;
+                background: #9c9c9c;
+                border-radius: 3px;
+            }
+        </style>
+
+        <script>
+            function calculateTotal() {
+                const apples = parseInt(document.getElementById('apples').value) || 0;
+                const pears = parseInt(document.getElementById('pears').value) || 0;
+                const oranges = parseInt(document.getElementById('oranges').value) || 0;
+                const melons = parseInt(document.getElementById('melons').value) || 0;
+                
+                const total = (apples * 100) + (pears * 80) + (oranges * 150) + (melons * 300);
+                
+                document.getElementById('output').textContent = `Общая цена: ${total} рублей`;
+            }
+
+            function clearFields() {
+                document.getElementById('apples').value = '';
+                document.getElementById('pears').value = '';
+                document.getElementById('oranges').value = '';
+                document.getElementById('melons').value = '';
+                
+                document.getElementById('output').textContent = '';
+            }
+        </script>
+    </head>
+
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная работа 5
+            <hr>
+        </header>
+
+        <main>
+            <div class="container">
+                <h1>Корзина товаров</h1>
+                
+                <div class="product">
+                    <span class="product-name">Яблоки</span>
+                    <span class="product-price">100 руб/шт</span>
+                    <input type="number" id="apples" placeholder="Количество" min="0" oninput="this.value = Math.max(this.value, 0)">
+                </div>
+                
+                <div class="product">
+                    <span class="product-name">Груши</span>
+                    <span class="product-price">80 руб/шт</span>
+                    <input type="number" id="pears" placeholder="Количество" min="0" oninput="this.value = Math.max(this.value, 0)">
+                </div>
+                
+                <div class="product">
+                    <span class="product-name">Апельсины</span>
+                    <span class="product-price">150 руб/шт</span>
+                    <input type="number" id="oranges" placeholder="Количество" min="0" oninput="this.value = Math.max(this.value, 0)">
+                </div>
+                
+                <div class="product">
+                    <span class="product-name">Дыни</span>
+                    <span class="product-price">300 руб/шт</span>
+                    <input type="number" id="melons" placeholder="Количество" min="0" oninput="this.value = Math.max(this.value, 0)">
+                </div>
+                
+                <div class="buttons">
+                    <button id="calculate" onclick="calculateTotal()">Рассчитать</button>
+                    <button id="clear" onclick="clearFields()">Очистить</button>
+                </div>
+                
+                <div id="output"></div>
+            </div>
+        </main>
+
+        <footer>
+            &copy; Лелюх Роман, ФБИ-34, 2 курс, 2025
+        </footer>
+    </body>
+</html>
