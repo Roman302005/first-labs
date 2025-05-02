@@ -73,9 +73,11 @@
 
     <script>
         function showSum() {
+            let inputA = document.getElementById('numberA');
+            let inputB = document.getElementById('numberB');
 
-            let a = 5154;
-            let b = 7891;
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
             let result = a + b;
             alert('Сумма ' + a + ' и ' + b + ' равна ' + result);
         }
@@ -83,13 +85,26 @@
                 let author = "Автор страницы: \nЛелюх";
                 alert(author)
         }
+        function showw(){
+            let author = "привет, это моя страница";
+            alert(author)
+        } 
     </script>
 </head>
 <body>
-    <header>
+    <header onclick="showw()">
         НГТУ, ФБ, Лабораторная работа 5
     </header>
     <main>
+        <label>
+            Первое число:
+            <input type="number" value="5154" id="numberA">
+        </label>
+        <label>
+            Второе число:
+            <input type="number" value="7891" id="numberB">
+        </label>
+
 
         <div class="message" onclick="showSum()">Найти сумму чисел</div>
         <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
