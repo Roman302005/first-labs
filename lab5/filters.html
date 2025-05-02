@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Лелюх Роман Вячеславович. Лабораторная 5</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="icon" href="../favicon-16x16.png">
+        <link rel="icon" href="../favicon-32x32.png">
+    </head>
+    <style>
+        div{
+            text-align: center;
+        }
+        img{
+            width: 20%;
+        }
+    </style>
+    <script>
+        function blurChange(){
+            let value = document.getElementById('blurValue').value + 'px';
+            document.getElementById('blurOutput').innerText = value;
+            document.getElementById('blurImage').style.filter = 'blur(' + value +')';
+        }
+
+
+    </script>
+
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная работа 5
+        </header>
+
+        <main>
+            <div>
+                blur:
+                <input type="range"  value="0" min="0" max="20" onchange="blurChange()" id="blurValue">
+                <span id="blurOutput"></span>
+            </div>
+
+
+
+
+            <div class="img">
+                <img src="123.jpg" id="blurImage">
+            </div>
+        </main>
+
+        <footer>
+            &copy; Лелюх Роман, ФБИ-34, 2 курс, 2025
+        </footer>
+        
+    </body>
+</html>
