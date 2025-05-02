@@ -105,6 +105,75 @@
                 let result = a * b;
                 alert('Произведение ' + a + ' и ' + b + ' равно ' + result);
         }
+        function showDiv(){
+                let inputA = document.getElementById('numberA');
+                let inputB = document.getElementById('numberB');
+                let a = parseInt(inputA.value);
+                let b = parseInt(inputB.value);
+                if(b == 0) {
+                    alert('На ноль делить нельзя');
+                    inputB.focus()
+                    inputB.select()
+                    inputB.style.color = 'red';
+                    inputB.style.borderColor = 'red';
+                    return;
+                }
+                
+                if(isNaN(a)) {
+                    alert('Введите числовое значение в первое поле');
+                    return;
+                }
+                if (isNaN(b)) {
+                alert('Введите числовое значение во второе поле');
+                inputB.focus();
+                inputB.select();
+                inputB.style.color = 'red';
+                inputB.style.borderColor = 'red';
+                return;
+            }
+            
+                inputB.style.color = '';
+                inputB.style.borderColor = '';
+
+                let result = a / b;
+                alert('Деление ' + a + ' и ' + b + ' равно ' + result);
+        }
+
+        function showPower(){
+                let inputA = document.getElementById('numberA');
+                let inputB = document.getElementById('numberB');
+                let a = parseInt(inputA.value);
+                let b = parseInt(inputB.value);
+                if (isNaN(a)) {
+                alert('Введите числовое значение в первое поле');
+                inputA.focus();
+                inputA.select();
+                inputA.style.color = 'red';
+                inputA.style.borderColor = 'red';
+                return;
+            }
+            if (isNaN(b)) {
+                alert('Введите числовое значение во второе поле');
+                inputB.focus();
+                inputB.select();
+                inputB.style.color = 'red';
+                inputB.style.borderColor = 'red';
+                return;
+            }
+            if (a === 0 && b === 0) {
+                alert('Ошибка: оба числа равны нулю');
+                inputA.focus();
+                inputA.select();
+                inputA.style.color = 'red';
+                inputA.style.borderColor = 'red';
+                inputB.style.color = 'red';
+                inputB.style.borderColor = 'red';
+                return;
+            }
+
+            let result = Math.pow(a, b);
+            alert(a + ' в степени ' + b + ' равно ' + result);
+        }
     </script>
 </head>
 <body>
@@ -126,6 +195,8 @@
         <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
         <div class="message" onclick="difference()">Найти разность чисел</div>
         <div class="message" onclick="composition()">Найти произведение чисел</div>
+        <div class="message" onclick="showDiv()">Найти отношение чисел</div>
+        <div class="message" onclick="showPower()">Найти степень чисел</div>
 
 
     </main>
