@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лелюх Роман Вячеславович. Доп</title>
+  <link rel="stylesheet" href="../main.css">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <link rel="icon" href="../favicon-32x32.png">
+  <link rel="icon" href="../favicon-16x16.png">
+  <style>
+        #chart {
+        display: flex;
+        align-items: flex-end;
+        height: 300px;
+        gap: 4px;
+        margin-bottom: 20px;
+        }
+
+        .bar {
+        width: 10px;
+        background: rgb(217, 154, 178);
+        display: flex;
+        border: 4px;
+        border-color: black;
+        border-radius: 1px;
+        justify-content: center;
+        align-items: flex-end;
+        padding: 7px
+        }
+        .highlight {
+        background: rgb(211, 101, 149) !important;
+        }
+        input {
+        margin-right: 10px;
+        }
+        button {
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body onload="generateChart()">
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+        <hr>
+    </header>
+
+    <main>
+        <div id="chart"></div>
+        <label for="dayInput">Введите номер дня (1–30):</label>
+        <input type="number" id="dayInput" min="1" max="30">
+        <button onclick="highlightDay()">Показать</button>
+        <div id="dayInfo"></div>
+    </main>
+
+    <script>
+        const days = [];
+        function generateChart() {
+        const chart = document.getElementById("chart");
+        chart.innerHTML = "";
+        days.length = 0;
+        for (let i = 1; i <= 30; i++) {
+            const min = Math.floor(Math.random() * 10); 
+            const max = min + Math.floor(Math.random() * 15) + 5;
+            days.push({ day: i, min, max });
+
+            const bar = document.createElement("div");
+            bar.className = "bar";
+            bar.style.height = `${max * 5}px`;
+            bar.id = "bar-" + i;
+            bar.title = `День ${i}: ${min}..${max} °C`;
+            chart.appendChild(bar);
+        }
+        }
+        function highlightDay() {
+        const input = document.getElementById("dayInput");
+        const num = parseInt(input.value);
+        document.querySelectorAll(".bar").forEach(bar => bar.classList.remove("highlight"));
+        if (num >= 1 && num <= 30) {
+            const bar = document.getElementById("bar-" + num);
+            bar.classList.add("highlight");
+            const day = days[num - 1];
+            document.getElementById("dayInfo").innerText = `День ${day.day}: мин. ${day.min}°C, макс. ${day.max}°C`;
+        } else {
+            document.getElementById("dayInfo").innerText = "Некорректно";
+        }
+        }
+    </script>
+    
+    <footer>
+        &copy; Лелюх Роман, ФБИ-34, 2 курс, 2025
+    </footer>
+
+</body>
+</html>
