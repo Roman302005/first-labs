@@ -9,6 +9,13 @@
   <link rel="icon" href="../favicon-32x32.png">
   <link rel="icon" href="../favicon-16x16.png">
 </head>
+<style>
+  button {
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+  }
+</style>
 
 <body onload="showMutipleTable()">
     <header>
@@ -17,15 +24,22 @@
 
     <main>
         <div id="mtable"></div>
+        <input type="number" id="mult" placeholder="Умножить на" value="7">
+        <input type="number" id="start" placeholder="Начать с" value="1">
+        <input type="number" id="end" placeholder="Закончить на" value="10">
+        <button onclick="showMutipleTable()">Показать таблицу</button>
       </main>
 
       <script>
         function showMutipleTable() {
+          const m = document.getElementById("mult").value || 7;
+          const start = parseInt(document.getElementById("start").value || 1);
+          const end = parseInt(document.getElementById("end").value || 10);
           const tbl = document.getElementById("mtable");
-          tbl.innerHTML = "<h1>Таблица умножения</h1>";
-          for (let i = 1; i <= 10; i++) {
-            let s = `<div>${i} × 7 = ${i * 7}</div>`;
-            tbl.innerHTML +=s;
+          tbl.innerHTML = "";
+          const a = Math.min(start, end), b = Math.max(start, end);
+          for (let i = a; i <= b; i++) {
+            tbl.innerHTML += `<div>${m} × ${i} = ${m * i}</div>`;
           }
         }
       </script>
