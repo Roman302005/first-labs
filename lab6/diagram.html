@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лелюх Роман Вячеславович. Диаграмма</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-16x16.png">
+    <style>
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 60vh;
+        }
+        #diag {
+            display: flex;
+            align-items: flex-end;
+            height: 210px;
+            position: relative;
+            background-color: white;
+            padding: 10px;
+        }
+        .bar {
+            position: relative;
+            width: 27px;
+            border-radius: 2px;
+            display: flex;
+            justify-content: center;
+
+        }
+    </style>
+
+    </head>
+    <body onload="showDiagram()">
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+        <hr>
+    </header>
+
+    <main>
+        <div id="diag"></div>
+    </main>
+
+    <script>
+        function showDiagram() {
+        const data = [15, 25, 31, 50, 11, 34, 21, 30, 6, 20];
+        const colors = ["orange", "red", "gray", "green", "pink", "indigo", "violet", "yellow", "brown", "blue"];
+        const diag = document.getElementById("diag");
+        diag.innerHTML = "";
+        const maxVal = Math.max(...data);
+        const scale = diag.clientHeight / maxVal * 0.9;
+
+        for (let i = 0; i < data.length; i++) {
+            const bar = document.createElement("div");
+            bar.className = "bar";
+            bar.style.height = `${data[i] * scale}px`;
+            bar.style.background = colors[i];
+            bar.textContent = data[i];
+            diag.appendChild(bar);
+        }
+        }
+    </script>
+
+    <footer>
+        &copy; Лелюх Роман, ФБИ-34, 2 курс, 2025
+    </footer>
+</body>
+</html>
