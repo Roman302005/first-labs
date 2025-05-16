@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лелюх Роман Вячеславович. Книги</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-16x16.png">
+    <style>
+        .book {
+        margin: 25px;
+        padding: 10px;
+        }
+        .bestseller {
+        background: #f3b0f2;
+        border-radius: 6px;
+        }
+        .outofstock {
+        opacity: 0.4;
+        }
+        .label {
+            font-weight: bolder;
+        }
+        .label.bestseller {
+            color: #ff006f;
+        }
+    </style>
+    </head>
+    <body onload="showBooks()">
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+        <hr>
+    </header>
+
+    <main>
+        <div id="booklist"></div>
+    </main>
+
+    <script>
+            const books = [
+        {name: "<h3>Гарри Поттер и философский камень</h3>", author: "Дж. К. Роулинг", year: 1997, price: 35, bestseller: true, inStock: true},
+        {name: "<h3>Убить пересмешника</h3>", author: "Харпер Ли", year: 1960, price: 40, bestseller: false, inStock: true},
+        {name: "<h3>Властелин колец: Братство кольца</h3>", author: "Дж. Р. Р. Толкин", year: 1954, price: 50, bestseller: true, inStock: false},
+        {name: "<h3>Игра престолов</h3>", author: "Джордж Р. Р. Мартин", year: 1996, price: 45, bestseller: true, inStock: true},
+        {name: "<h3>Гордость и предубеждение</h3>", author: "Джейн Остин", year: 1813, price: 30, bestseller: true, inStock: false},
+        {name: "<h3>1984</h3>", author: "Джордж Оруэлл", year: 1949, price: 25, bestseller: true, inStock: true},
+        {name: "<h3>Голодные игры</h3>", author: "Сьюзен Коллинз", year: 2008, price: 40, bestseller: false, inStock: true},
+        {name: "<h3>Девушка в поезде</h3>", author: "Паула Хокинс", year: 2015, price: 35, bestseller: true, inStock: true},
+        {name: "<h3>Шантарам</h3>", author: "Грегори Дэвид Робертс", year: 2003, price: 55, bestseller: false, inStock: true},
+        {name: "<h3>Маленький принц</h3>", author: "Антуан де Сент-Экзюпери", year: 1943, price: 20, bestseller: false, inStock: true}
+        ];
+
+        function showBooks() {
+            const list = document.getElementById("booklist");
+            list.innerHTML = "";
+            books.forEach(book => {
+                const div = document.createElement("div");
+                div.className = "book" + (book.bestseller ? " bestseller" : "") + (book.inStock ? "" : " outofstock");
+                div.innerHTML = `<strong>${book.name}</strong> (${book.year})<br>
+                    Автор: ${book.author}<br>
+                    Цена: $ ${book.price} <br>
+                    ${book.inStock ? "В наличии" : "Нет в наличии"}`;
+                if (book.bestseller) {
+                    const label = document.createElement("div");
+                    label.textContent = "Бестселлер!!!";
+                    label.className = "label bestseller";
+                    div.appendChild(label);
+                }
+                list.appendChild(div);
+            });
+        }
+    </script>
+
+    <footer>
+        &copy; Лелюх Роман, ФБИ-34, 2 курс, 2025
+    </footer>
+    
+</body>
+</html>
