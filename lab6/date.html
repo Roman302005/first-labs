@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лелюх Роман Вячеславович. Дата и время</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-16x16.png">
+    <style>
+        header {
+        transition: color 0.6s ease;
+        }
+        button {
+            background:lightgray;
+            border-radius: 5px;
+            display: flex;
+        }
+    </style>
+    </head>
+
+    <body onload="showDate()">
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+        <hr>
+    </header>
+
+    <main>
+        <h2>Текущая дата и время</h2>
+        <div id="current-date"></div>
+        <button onclick="startDateUpdate()" id="date-start">Обновлять время</button>
+        <button onclick="stopDateUpdate()" id="date-stop" disabled>Остановить обновление</button>
+
+        <h2>Дата и время в разных локалях</h2>
+        <div id="locales"></div>
+
+        <h2>Смена цвета заголовка</h2>
+        <button onclick="startColors()" id="start">Старт</button>
+        <button onclick="stopColors()" id="stop" disabled>Стоп</button>
+    </main>
+
+    <script>
+        let colorTimer;
+        let dateTimer;
+        function showDate() {
+        const now = new Date();
+        document.getElementById("current-date").innerText = now.toLocaleString("ru-RU");
+        const locales = ["en-US", "de-DE", "fr-FR", "zh-CN", "ja-JP"];
+        let output = "";
+        for (const loc of locales) {
+            output += `<div><strong>${loc}</strong>: ${now.toLocaleString(loc)}</div>`;
+        }
+        document.getElementById("locales").innerHTML = output;
+        }
+        function updateCurrentDate() {
+        const now = new Date();
+        document.getElementById("current-date").innerText = now.toLocaleString("ru-RU");
+        }
+        function startDateUpdate() {
+        updateCurrentDate();
+        dateTimer = setInterval(updateCurrentDate, 1000);
+        document.getElementById("date-start").disabled = true;
+        document.getElementById("date-stop").disabled = false;
+        }
+        function stopDateUpdate() {
+        clearInterval(dateTimer);
+        document.getElementById("date-start").disabled = false;
+        document.getElementById("date-stop").disabled = true;
+        }
+        function changeColors() {
+        const h = document.getElementsByTagName("header")[0];
+        const r = Math.floor(Math.random() * 256);
+        const g = Math.floor(Math.random() * 256);
+        const b = Math.floor(Math.random() * 256);
+        h.style.color = `rgb(${r}, ${g}, ${b})`;
+        }
+        function startColors() {
+        changeColors();
+        colorTimer = setInterval(changeColors, 1000);
+        document.getElementById("start").disabled = true;
+        document.getElementById("stop").disabled = false;
+        }
+        function stopColors() {
+        clearInterval(colorTimer);
+        document.getElementById("start").disabled = false;
+        document.getElementById("stop").disabled = true;
+        }
+    </script>
+
+    <footer>
+        &copy; Лелюх Роман, ФБИ-34, 2 курс, 2025
+    </footer>
+</body>
+</html>
