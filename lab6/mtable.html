@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лелюх Роман Вячеславович. Таблица умножения</title>
+  <link rel="stylesheet" href="../main.css">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <link rel="icon" href="../favicon-32x32.png">
+  <link rel="icon" href="../favicon-16x16.png">
+</head>
+
+<body onload="showMutipleTable()">
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>
+
+    <main>
+        <div id="mtable"></div>
+      </main>
+
+      <script>
+        function showMutipleTable() {
+          const tbl = document.getElementById("mtable");
+          tbl.innerHTML = "<h1>Таблица умножения</h1>";
+          for (let i = 1; i <= 10; i++) {
+            let s = `<div>${i} × 7 = ${i * 7}</div>`;
+            tbl.innerHTML +=s;
+          }
+        }
+      </script>
+
+    <footer>
+        &copy; Лелюх Роман, ФБИ-34, 2 курс, 2025
+    </footer>
+</body>
+</html>
