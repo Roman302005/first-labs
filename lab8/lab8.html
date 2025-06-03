@@ -26,6 +26,15 @@
             <div>Имя: {{ user.name }}</div>
             <div>Возраст: {{ user.age }}</div>
             <div>Телефон: {{ user.tel }}</div>
+            <hr>
+
+            <h2>Цветы</h2>
+            <ul>
+                <li v-for="(flower, id) in flowers">
+                    {{ flower }} <button @click="edit(id,flower)">?</button>
+                </li>
+            </ul>
+            <hr>
         </div>
     </main>
 
@@ -44,6 +53,7 @@
                         age: '18',
                         tel: '222-33-44'
                     },
+                    flowers: ['роза', 'тюльпан', 'маргаритка', 'георгин', 'одуванчик'],
                 }
             },
             methods: {
@@ -52,7 +62,11 @@
                 },
                 decCounter() {
                     this.counter--;
-                }
+                },
+                edit(id, flower) {
+                    let newName = prompt('Введите имя цветка:', flower);
+                    this.flowers[id] = newName;
+                },
             }
         }).mount("#app");
     </script>
