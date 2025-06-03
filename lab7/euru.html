@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лелюх Роман Вячеславович. Лабораторная 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-16x16.png">
+    <link rel="shortcut icon" href="../favicon-32x32.png">
+    <script>
+        function getEuroExchangeRate() {
+            const url = 'https://www.cbr-xml-daily.ru/daily_json.js'
+            fetch(url)
+                .then(response => response.json())
+                .then(json => {
+                const eur = json.Valute.EUR;
+                const diff = (eur.Value - eur.Previous).toFixed(2);
+                let trend = 'не изменился';
+                if (eur.Value > eur.Previous) trend = 'повысился';
+                else if (eur.Value < eur.Previous) trend = 'снизился';
+                document.getElementById('result').innerHTML = `
+                    <div>
+                        <p>Дата: ${json.Date}</p>
+                        <p>Текущий курс EUR: ${eur.Value.toFixed(2)}</p>
+                        <p>Предыдущий курс: ${eur.Previous.toFixed(2)}</p>
+                        <p>Разница: ${diff} (${trend})</p>
+                    </div>`;
+                });
+        }
+    </script>
+    <style>
+        div {
+            border: 1.75px solid red;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+    <main>
+        <button onclick="getEuroExchangeRate()">Получить курс евро</button>
+        <div id="result"></div>
+        <div>
+            <a href="https://www.cbr-xml-daily.ru/">Курсы ЦБ РФ в XML и JSON, API</a>
+        </div>
+    </main>
+    <footer>
+        &copy; Лелюх Роман, ФБИ-34, 2 курс, 2025
+    </footer>
+</body>
+</html>
