@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лелюх Роман Вячеславович. Лабораторная 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-16x16.png">
+    <link rel="shortcut icon" href="../favicon-32x32.png">
+    <script>
+        let url = "https://api.open-meteo.com/v1/forecast?latitude=55.0415&longitude=82.9346&hourly=temperature_2m&timezone=Asia%2FBangkok";
+        fetch(url) 
+            .then(response => response.json()) 
+            .then(data => {
+                let times = data.hourly.time; 
+                let temps = data.hourly.temperature_2m; 
+
+                let today = new Date().toISOString().split("T")[0];
+
+                let hours = ["08:00", "12:00", "20:00"];
+
+                let result = ""; 
+
+                for (let hour of hours) {
+                    let fullTime = today + "T" + hour; 
+                    let index = times.indexOf(fullTime); 
+
+                    if (index !== -1) {
+                        result += "Температура в " + hour + ": " + temps[index] + " °C<br>";
+                    } else {
+                        result += "Нет данных для " + hour + "<br>";
+                    }
+                }
+
+                document.getElementById("tempInfo").innerHTML = result; 
+            })
+            .catch(error => {
+                document.getElementById("tempInfo").innerText = "Ошибка загрузки данных.";
+                console.log(error);
+            });
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+
+    <main>
+        <h2>Температура в Новосибирске сегодня</h2>
+        <p id="tempInfo">Загрузка данных...</p>
+    </main>
+    <footer>
+        &copy; Лелюх Роман, ФБИ-34, 2 курс, 2025
+    </footer>
+</body>
+</html>
