@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лелюх Роман Вячеславович. Лабораторная 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-16x16.png">
+    <link rel="shortcut icon" href="../favicon-32x32.png">
+    <script src="company-data.js"></script>
+    <script>
+    function showStockTable(btn) {
+        const table = document.getElementById('stockTable');
+        let sum = 0, max = -Infinity, min = Infinity;
+        for (let i = 0; i < stockData.prices.length; i++) {
+            const row = document.createElement('tr');
+            const tdDate = document.createElement('td');
+            const tdPrice = document.createElement('td');
+            const tdDiff = document.createElement('td');
+
+            tdDate.textContent = stockData.dates[i];
+            tdPrice.textContent = stockData.prices[i].toFixed(2);
+
+            if (i > 0) {
+            const diff = stockData.prices[i] - stockData.prices[i - 1];
+            tdDiff.textContent = diff.toFixed(2);
+            tdDiff.style.color = diff > 0 ? 'green' : diff < 0 ? 'red' : 'black';
+            } else {
+            tdDiff.textContent = '-';
+            }
+
+            row.appendChild(tdDate);
+            row.appendChild(tdPrice);
+            row.appendChild(tdDiff);
+            table.appendChild(row);
+
+            sum += stockData.prices[i];
+            max = Math.max(max, stockData.prices[i]);
+            min = Math.min(min, stockData.prices[i]);
+        }
+        document.getElementById('summary').innerHTML = `
+            <p>Средняя цена: ${(sum / stockData.prices.length).toFixed(2)}</p>
+            <p>Максимум: ${max.toFixed(2)}</p>
+            <p>Минимум: ${min.toFixed(2)}</p>`;
+        btn.remove();
+    }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+
+    <main>
+        <button onclick="showStockTable(this)">Курс акций Полюс</button>
+        <table id="stockTable" border="1"></table>
+        <div id="summary"></div>
+    <footer>
+        &copy; Лелюх Роман, ФБИ-34, 2 курс, 2025
+    </footer>
+</body>
+</html>
