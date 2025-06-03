@@ -18,24 +18,32 @@
     
     <main>
         <div id="app">
-            <h1 :title="messageRus">{{ message }}</h1>
-            <p>Счётчик: {{ counter }}</p>
-            <button @click="incCounter" v-if="counter < 10">++</button>
-            <button @click="decCounter" v-if="counter > 0">--</button>
+            <h1 :title="messageRus" class="text-primary">{{ message }}</h1>
+            <p>Счётчик: <span class="badge text-bg-secondary fs-5">{{ counter }}</span></p>
+            <div class="mb-3">
+                <button @click="incCounter" v-if="counter < 10" class="btn btn-success me-2">
+                    <i class="bi bi-plus-circle"></i> Увеличить
+                </button>
+                <button @click="decCounter" v-if="counter > 0" class="btn btn-danger">
+                    <i class="bi bi-dash-circle"></i> Уменьшить
+                </button>
+            </div>
             <hr>
 
             <h2>Пользователь:</h2>
-            <div>Имя: {{ user.name }}</div>
-            <div>Возраст: {{ user.age }}</div>
-            <div>Телефон: {{ user.tel }}</div>
+            <div class="mb-2">Имя: <strong>{{ user.name }}</strong></div>
+            <div class="mb-2">Возраст: <strong>{{ user.age }}</strong></div>
+            <div class="mb-4">Телефон: <strong>{{ user.tel }}</strong></div>
             <hr>
-            <div class="card" style="width: 20rem;">
+            <div class="card mb-4" style="width: 20rem;"> 
                 <div class="card-body">
-                    <h2 class = "card-title">Цветы</h2>
+                    <h2 class="card-title">Цветы</h2>
                     <ul class="list-group">
-                        <li v-for="(flower, id) in flowers" class="list-group-item">
-                            {{ flower }} <button @click="edit(id,flower)">?</button>
-                        </li>
+                        <li v-for="(flower, id) in flowers" class="list-group-item d-flex justify-content-between align-items-center">
+                            {{ flower }}
+                            <button @click="edit(id,flower)" class="btn btn-outline-primary btn-sm">
+                                <i class="bi bi-pencil-square"></i>
+                            </button>
                     </ul>
                 </div>
             </div>
@@ -48,31 +56,37 @@
                         <th scope="col">Редактировать</th>
                     </tr>
                 </thead>
-                <tr v-for="(flower, id) in flowers">
-                    <td>
-                        <span v-if="flower === null">загружается...</span>
-                        <span v-else>{{ flower }}</span>
-                    </td>
-                    <td>
-                        <<button @click="edit(id,flower)" class="btn btn-primary" v-if="flower !== null"><i class="bi bi-pen"></i></button>
-                        <div class="spinner-border" role="status" v-if="flower === null"></div>
-                    </td>
-                </tr>
+                <tbody>
+                    <tr v-for="(flower, id) in flowers">
+                        <td>
+                            <span v-if="flower === null">загружается...</span>
+                            <span v-else>{{ flower }}</span>
+                        </td>
+                        <td>
+                            <button @click="edit(id,flower)" class="btn btn-primary btn-sm" v-if="flower !== null">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+                            <div class="spinner-border spinner-border-sm text-secondary" role="status" v-if="flower === null"></div>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
             <hr>
             <h2>Калькулятор</h2>
-            <div class="row g-5">
+            <div class="row g-3 align-items-center mb-4">
                 <div class="col-auto">
-                    <input type="number" v-model="a" class="form-control">
+                    <input type="number" v-model="a" class="form-control" placeholder="Введите A">
                 </div>
                 <div class="col-auto">
-                    +
+                    <span class="fs-4">+</span>
                 </div>
                 <div class="col-auto">
-                    <input type="number" v-model="b" class="form-control">
+                    <input type="number" v-model="b" class="form-control" placeholder="Введите B">
                 </div>
                 <div class="col-auto">
-                    <button @click="sum" class="btn btn-primary">=</button>
+                    <button @click="sum" class="btn btn-success">
+                        <i class="bi bi-equals">=</i>
+                    </button>
                 </div>
                 <div class="col-auto">
                     <span class ="badge text-bg-primary fs-5"> {{ result }}</span>
