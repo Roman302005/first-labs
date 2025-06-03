@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>О компании — Smart Tech Group</title>
+  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  
+  <link rel="stylesheet" href="../main.css" />
+  
+  <style>
+    .screen {
+      padding: 60px 40px;
+      border-bottom: 1px solid #1f2235;
+      background: linear-gradient(135deg, #101020 0%, #1a1a2e 100%);
+      color: #e0e0e0;
+    }
+    .screen h1,
+    .screen h2 {
+      font-family: 'Playfair Display', serif;
+      color: #ffbf00;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .screen h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+    .screen h2 {
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+    .screen p {
+      font-family: 'Lato', sans-serif;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      text-align: justify;
+      position: relative;
+    }
+    .screen p strong {
+      color: #ffbf00;
+      font-weight: 700;
+    }
+    .screen p em {
+      font-style: italic;
+      color: #ffffff;
+    }
+    .screen p u {
+      text-decoration: underline;
+      color: #ffffff;
+    }
+    /* ====== Карточки (services) ====== */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .card {
+      background-color: #1f2235;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s, background-color 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      background-color: #2a2a45;
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 20px;
+    }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: #ffbf00;
+      margin-bottom: 10px;
+    }
+    .card-text {
+      font-family: 'Lato', sans-serif;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #d4d4d4;
+    }
+    /* ====== Timeline ====== */
+    .timeline {
+      margin-top: 50px;
+      border-left: 3px solid #ffbf00;
+      padding-left: 20px;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 30px;
+      padding-left: 20px;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 5px;
+      width: 16px;
+      height: 16px;
+      background-color: #ffbf00;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px #1f2235;
+    }
+    .timeline-item h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: #ffbf00;
+      margin-bottom: 5px;
+    }
+    .timeline-item p {
+      font-family: 'Lato', sans-serif;
+      font-size: 1rem;
+      color: #d4d4d4;
+      line-height: 1.6;
+    }
+    /* ====== Ссылка внутри параграфа ====== */
+    .screen p a {
+      color: #ffbf00;
+      text-decoration: none;
+      border-bottom: 1px solid #ffbf00;
+      padding-bottom: 2px;
+      transition: color 0.3s, border-color 0.3s;
+    }
+    .screen p a:hover {
+      color: #ffd966;
+      border-color: #ffd966;
+    }
+    /* ====== Адаптив ====== */
+    @media (max-width: 768px) {
+      .screen {
+        padding: 40px 20px;
+      }
+      .card img {
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+<body id="top">
+  <header>
+    <nav>
+      <div class="logo">smart<br />tech<br />group</div>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="about.html">О компании</a></li>
+        <li><a href="news.html">Новости</a></li>
+        <li><a href="currency.html">Курс валют</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
+        <li><a href="video.html">Видео</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Первый экран: Обзор, миссия и ценности -->
+    <section class="screen">
+      <h1><strong>О компании</strong></h1>
+      <p>
+        <em>Smart Tech Group</em> основана в <u>2016 году</u> как стартап из
+        нескольких энтузиастов блокчейн-технологий. Наша цель — сделать финансы
+        прозрачно доступными для всех: от обычных пользователей до крупных
+        корпораций. За первые годы мы выросли в международный холдинг с офисами
+        в Москве, Лондоне и Сингапуре, объединив команду из более чем 200
+        профессионалов.
+      </p>
+      <p>
+        Наша миссия — создавать инновационные решения, которые упрощают
+        повседневные финансовые операции и открывают новые возможности для
+        роста бизнеса. Мы верим, что цифровые активы и блокчейн могут стать
+        безопасным, масштабируемым инструментом, а не только предметом спекуляций.
+      </p>
+      <p>
+        <strong>Наши ключевые ценности:</strong>
+      </p>
+      <ul>
+        <li>Прозрачность: все процессы максимально открыты и защищены.</li>
+        <li>Надёжность: сертификат ISO 27001 гарантирует безопасность данных.</li>
+        <li>Инновации: мы всегда внедряем передовые технологии и подходы.</li>
+        <li>Клиентоориентированность: каждый продукт создаётся с учётом потребностей пользователей.</li>
+      </ul>
+
+    </section>
+
+    <!-- Второй экран: Основатели, команда и услуги (карточки) -->
+    <section class="screen">
+      <h2><strong>Основатели и команда</strong></h2>
+      <p>
+        Smart Tech Group была создана <strong>Иваном Смирновым</strong> и
+        <strong>Еленой Ковалевой</strong>. Их цель состояла в том, чтобы
+        объединить технические и бизнес-навыки для разработки
+        передовых финансовых платформ.
+      </p>
+      <div class="cards">
+        <!-- Иван Смирнов -->
+        <div class="card">
+
+          <div class="card-content">
+            <div class="card-title">Иван Смирнов</div>
+            <div class="card-text">
+              Технический директор и сооснователь. Эксперт в блокчейн-архитектурах и
+              распределённых системах. В 2018 году разработал первый мобильно-ориентированный
+              криптокошелёк компании, который сейчас используют сотни тысяч пользователей.
+            </div>
+          </div>
+        </div>
+        <!-- Елена Ковалева -->
+        <div class="card">
+
+          <div class="card-content">
+            <div class="card-title">Елена Ковалева</div>
+            <div class="card-text">
+              Операционный директор и сооснователь. Отвечает за стратегические
+              партнёрства и инвестиции. Под её руководством Smart Tech Group привлекла
+              более $15 млн венчурных средств и вошла в топ-5 финтех-стартапов России.
+            </div>
+          </div>
+        </div>
+        <!-- Анна Иванова -->
+        <div class="card">
+
+          <div class="card-content">
+            <div class="card-title">Анна Иванова</div>
+            <div class="card-text">
+              Старший разработчик смарт-контрактов. Специализируется на Solidity и
+              DeFi-протоколах. Разработала более 30 успешных контрактов для блокчейн-проектов.
+            </div>
+          </div>
+        </div>
+        <!-- Дмитрий Петров -->
+        <div class="card">
+
+          <div class="card-content">
+            <div class="card-title">Дмитрий Петров</div>
+            <div class="card-text">
+              Руководитель отдела аналитических исследований. Занимается прогнозами
+              крипторынков и рисковыми оценками. Опубликовал более 50 аналитических отчётов.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2><strong>Наши услуги</strong></h2>
+      <p>
+        Мы предлагаем полный спектр цифровых финансовых решений:
+      </p>
+      <ul>
+        <li>Разработка кастомных веб- и мобильных платформ для управления активами;</li>
+        <li>Внедрение и сопровождение корпоративных блокчейн-систем;</li>
+        <li>Интеграция с банками и платёжными провайдерами;</li>
+        <li>Разработка смарт-контрактов и токенов на Ethereum, Polygon, BSC;</li>
+        <li>Создание защищённых цифровых кошельков с мультиподписными транзакциями;</li>
+        <li>Консалтинг, аудит и валидация блокчейн-проектов;</li>
+        <li>Обучение сотрудников и проведение мастер-классов по блокчейн-технологиям.</li>
+      </ul>
+
+    </section>
+
+    <!-- Третий экран: История, вехи и награды (timeline) -->
+    <section class="screen">
+      <h2><strong>Наша история и достижения</strong></h2>
+      <p>
+        С момента основания в 2016 году мы прошли путь от небольшого MVP
+        до международного холдинга. Ниже представлены ключевые вехи нашего
+        развития:
+      </p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>2016 — Основание Smart Tech Group</h3>
+          <p>
+            Идея создать компанию, объединяющую разработку блокчейн-решений и
+            финтех, родилась у основателей после первой хакатон-конференции в Москве.
+          </p>
+        </div>
+        <div class="timeline-item">
+          <h3>2017 — Первое финансирование</h3>
+          <p>
+            Заключён seed-раунд на сумму $500 000 от частных инвесторов.
+            Часть средств ушла на разработку MVP платформы для криптоаналитики.
+          </p>
+        </div>
+        <div class="timeline-item">
+          <h3>2018 — Запуск мобильного криптокошелька</h3>
+          <p>
+            Выпущена iOS/Android-версия кошелька с функцией мультиподписных транзакций.
+            Приложение получило более 50 000 скачиваний за первые полгода.
+          </p>
+        </div>
+        <div class="timeline-item">
+          <h3>2019 — Сертификат ISO 27001</h3>
+          <p>
+            Успешно пройдена сертификация информационной безопасности.
+            Все серверы и процессы стандартизированы согласно международным требованиям.
+          </p>
+        </div>
+        <div class="timeline-item">
+          <h3>2020 — Открытие офиса в Лондоне</h3>
+          <p>
+            Расширяем присутствие в Европе. Лондонский офис стал центром
+            взаимодействия с британскими банками и регуляторами.
+          </p>
+        </div>
+        <div class="timeline-item">
+          <h3>2021 — Партнёрство с банками ТОП-5 России</h3>
+          <p>
+            Подписаны соглашения об интеграции с крупнейшими банками:
+            наши решения интегрированы в их клиентские приложения.
+          </p>
+        </div>
+        <div class="timeline-item">
+          <h3>2022 — Запуск собственной DeFi-платформы</h3>
+          <p>
+            Представлена платформа для децентрализованного кредитования,
+            которая привлекла более $10 млн ликвидности за первый квартал.
+          </p>
+        </div>
+        <div class="timeline-item">
+          <h3>2023 — Развитие R&D центра в Сочи</h3>
+          <p>
+            Открытие научно-исследовательского центра, где разрабатываются
+            уникальные алгоритмы для анализа цепочек блоков и машинного обучения.
+          </p>
+        </div>
+        <div class="timeline-item">
+          <h3>2024 — Приз «Финтех-Иновация года»</h3>
+          <p>
+            Награда за внедрение уникальной системы защиты данных на базе ZKP.
+            Приз вручён на международной выставке Finovate Europe.
+          </p>
+        </div>
+      </div>
+      <p>
+        Если хотите познакомиться с нами ближе, посетите
+        <a href="about.html">страницу «О компании»</a> или свяжитесь через
+        <a href="contacts.html">«Контакты»</a>.
+      </p>
+    </section>
+        <!-- Четвёртый экран: Дополнительная информация и карточки -->
+    <section class="screen">
+      <h2><strong>Дополнительные сведения о компании</strong></h2>
+      <p>
+        Smart Tech Group — это не только команда экспертов и продвинутая
+        технология, но и широкий спектр стратегических партнёрств,
+        международных проектов и социальных инициатив. Ниже приведены некоторые 
+        ключевые аспекты нашей деятельности, которые отражают масштаб и глубину
+        нашей экспертизы:
+      </p>
+      <div class="cards">
+        <!-- Карточка: Партнёры -->
+        <div class="card">
+
+          <div class="card-content">
+            <div class="card-title">Наши партнёры</div>
+            <div class="card-text">
+              Мы сотрудничаем с ведущими финансовыми институтами и технологическими 
+              компаниями по всему миру: от крупнейших банков Европы до стартапов
+              Кремниевой долины. Среди наших партнёров — «Сбербанк», Visa, Mastercard, 
+              а также блокчейн-фонд ConsenSys.
+            </div>
+          </div>
+        </div>
+        <!-- Карточка: Технологическая база -->
+        <div class="card">
+
+          <div class="card-content">
+            <div class="card-title">Технологическая база</div>
+            <div class="card-text">
+              В основе наших продуктов лежат современные технологии: Solidity, Rust, 
+              Python и Go для backend; React и React Native для frontend; базы данных 
+              PostgreSQL и MongoDB; а также решения Layer-2 на базе Optimism и zkSync.
+            </div>
+          </div>
+        </div>
+        <!-- Карточка: Международные проекты -->
+        <div class="card">
+
+          <div class="card-content">
+            <div class="card-title">Международные проекты</div>
+            <div class="card-text">
+              Smart Tech Group участвует в крупных международных инициативах: от 
+              внедрения цифровых рублей совместно с Банком России до пилотных 
+              проектов цифровизации государственных услуг в ОАЭ и Сингапуре.
+            </div>
+          </div>
+        </div>
+        <!-- Карточка: Социальная ответственность -->
+        <div class="card">
+
+          <div class="card-content">
+            <div class="card-title">Социальная ответственность</div>
+            <div class="card-text">
+              Компания активно поддерживает образовательные программы и хакатоны 
+              для студентов в вузах Москвы и Санкт-Петербурга, а также спонсирует 
+              благотворительные инициативы по обучению цифровой грамотности в регионах.
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>
+        Хотите узнать ещё подробнее? Посетите нашу
+        <a href="about.html">страницу «О компании»</a> или свяжитесь с нами через
+        <a href="contacts.html">«Контакты»</a>.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Smart Tech Group</p>
+  </footer>
+
+  <!-- Кнопка «Наверх» -->
+  <a href="#top" class="back-to-top">↑ Наверх</a>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Курс валют — Smart Tech Group</title>
+  <link rel="stylesheet" href="../main.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body id="top">
+  <header>
+    <nav>
+      <div class="logo">smart<br />tech<br />group</div>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="about.html">О компании</a></li>
+        <li><a href="news.html">Новости</a></li>
+        <li><a href="currency.html">Курс валют</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
+        <li><a href="video.html">Видео</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>Курс валют</h1>
+    <div class="currency-converter">
+      <label>
+        Сумма:
+        <input type="number" id="amount" value="1" />
+      </label>
+      <label>
+        Валюта:
+        <select id="currency"></select>
+      </label>
+      <button id="convert-btn">Перевести</button>
+      <p id="result"></p>
+    </div>
+    <canvas id="chart"></canvas>
+  </main>
+  <footer>
+    <p>&copy; 2025 Smart Tech Group</p>
+  </footer>
+  <a href="#top" class="back-to-top">↑ Наверх</a>
+
+  <script src="../js/currency.js"></script>
+</body>
+</html>

@@ -1,65 +1,583 @@
-body {
-    background-color: rgb(206, 206, 206);
-    color: white;
-    font-family: Arial;
-    margin: 20px;
+
+* {
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-a { 
-    text-decoration: none; 
-    color: rgb(179, 227, 255);
-    transition: 1s 2s; 
-} 
- 
-a:link { 
-    color: rgb(64, 47, 255); 
-    text-decoration: underline; 
-} 
- 
-a:visited { 
-    color: rgb(255, 0, 0); 
-    text-decoration: underline; 
-} 
- 
-a:hover { 
-    color: rgb(107, 107, 107); 
-    text-decoration: underline;
-    transition: 0.3s;  
-} 
- 
-a:active { 
-    color: rgb(250, 159, 255); 
-    opacity: 1; 
+html, body {
+ font-family: 'Lato', sans-serif;
+  height: 100%;
+  background-color: #101020;   
+  color: #d4d4d4;              
 }
 
-div.menu {
-    border: 7px solid #0084ff;
-    border-radius: 5px;
-    width: 300px;
-    margin: 0 auto;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+header {
+  background-color: #101020;
+  border-bottom: 1px solid #1f2235; 
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-div.menu:hover {
-    background-color: #ffffff ;
-    box-shadow: 0 0 15px #1d1d1d80;
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
 }
 
-h1 {
-    text-align: center;
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.2;
+  color: #1e90ff; 
 }
 
-footer {
-    background-color: rgb(151, 151, 151);
-    color: rgb(255, 255, 255);
-    font-family: Arial;
-    margin: 0px;
-    text-align:right ;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    left: 0;
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
 }
+
+nav ul li a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #d4d4d4;               
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #1e90ff; 
+}
+
 
 main {
-    margin: 10px 20px 45px
+  padding: 40px;
 }
+
+/* FOOTER */
+footer {
+  background-color: #0e0f17;  
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #a0a0a0;             
+}
+
+/* Кнопка «Наверх» */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #1e90ff;    
+  color: #101020;               
+  padding: 10px 15px;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.back-to-top:hover {
+  background-color: #187bcd;    
+  transform: translateY(-2px);
+}
+
+/* Секции-экраны */
+.screen {
+justify-content: center;
+  padding: 60px 20px;
+  border-bottom: 1px solid #1f2235;
+}
+
+.screen h1,
+.screen h2 {
+    text-align: center;
+  margin-bottom: 20px;
+  color: #1e90ff; 
+}
+
+.screen p,
+.screen li {
+  margin-bottom: 15px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #d4d4d4; 
+}
+strong{
+    color: #187bcd;
+    justify-content: center;
+    text-align: center;
+}
+.screen img {
+  width: 250px;
+  margin-top: 20px;
+  border: 2px solid #1f2235;
+}
+
+/* ====== Стили для страницы «Новости» ====== */
+
+/* 1. Грид-контейнер для всех новостных карточек */
+.news-list {
+  display: grid;                                       /* включаем CSS Grid */
+  grid-template-columns: repeat(4, 1fr);               /* 4 равные колонки */
+  gap: 20px;                                           /* отступы между карточками */
+  padding: 20px;                                       /* внутренний отступ вокруг грида */
+  align-items: start;                                  /* выравниваем карточки по верхнему краю строки */
+}
+
+/* 2. Оформление самих карточек новостей */
+.news-card {
+  background-color: #1f2235;                           /* тёмный фон */
+  border-radius: 10px;                                 /* скруглённые углы */
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);            /* «парящий» эффект */
+  padding: 20px 15px;                                  /* внутренние отступы */
+  transition: transform 0.3s, background-color 0.3s;   /* плавные переходы при hover */
+  /* Убираем display: flex, чтобы высота карточки зависела только от её содержимого */
+}
+
+/* 3. Hover-эффект для карточки */
+.news-card:hover {
+  transform: translateY(-5px);
+  background-color: #2a2a45;
+}
+
+/* 4. Стили для даты новости */
+.news-card h3 {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.9rem;
+  color: #a0a0a0;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+/* 5. Стили для заголовка новости */
+.news-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  color: #ffffff;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+/* 6. Стили для превью текста */
+.news-card p {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.95rem;
+  color: #d4d4d4;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  /* Удалили flex-grow:1, чтобы карточка сама занимала высоту по контенту */
+}
+
+/* 7. Стили для кнопки «Показать» */
+.news-card button {
+  background-color: #ffbf00;
+  color: #101020;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.news-card button:hover {
+  background-color: #ffd966;
+  transform: translateY(-2px);
+}
+
+/* 8. Полный текст (изначально скрыт) */
+.full-text {
+  display: none;
+  margin-top: 12px;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.9rem;
+  color: #e0e0e0;
+  line-height: 1.5;
+}
+
+/* 9. При добавлении класса .visible показываем полный текст */
+.full-text.visible {
+  display: block;
+}
+
+/* === Responsive: до 1024px — 3 колонки === */
+@media (max-width: 1024px) {
+  .news-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* === Responsive: до 768px — 2 колонки === */
+@media (max-width: 768px) {
+  .news-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .news-card {
+    padding: 15px;
+  }
+}
+
+/* === Responsive: до 480px — 1 колонка === */
+@media (max-width: 480px) {
+  .news-list {
+    grid-template-columns: 1fr;
+  }
+  .news-card {
+    padding: 12px;
+  }
+}
+
+/* Калькулятор валют */
+.currency-converter {
+  background-color: #1f2235;
+  padding: 20px;
+  border-radius: 8px;
+  display: inline-block;
+  margin-bottom: 40px;
+}
+
+.currency-converter label {
+  font-size: 14px;
+  margin-right: 10px;
+  color: #d4d4d4;
+}
+
+.currency-converter input,
+.currency-converter select {
+  padding: 5px;
+  margin-left: 5px;
+  border: 1px solid #3a3d5c; /* приглушённый тёмно-синий */
+  border-radius: 4px;
+  background-color: #101020;
+  color: #d4d4d4;
+}
+
+.currency-converter button {
+  background-color: #1e90ff;
+  color: #101020;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-left: 10px;
+}
+
+.currency-converter button:hover {
+  background-color: #187bcd;
+  transform: translateY(-1px);
+}
+
+#result {
+  margin-top: 15px;
+  font-size: 16px;
+  color: #d4d4d4;
+}
+
+canvas {
+  max-width: 100%;
+  background-color: #1f2235;
+  border: 1px solid #3a3d5c;
+  border-radius: 8px;
+}
+
+/* Контакты */
+.contacts-info p {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #d4d4d4;
+}
+
+.map-container {
+
+  height: 400px;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+}
+
+/* Видео */
+.video-container {
+  margin-top: 20px;
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+}
+
+/* Быстрые ссылки на главной */
+.quick-links {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.quick-links li {
+  margin-bottom: 10px;
+}
+
+.quick-links li a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #1e90ff;
+  transition: color 0.3s;
+}
+
+.quick-links li a:hover {
+  color: #187bcd;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+  }
+
+  .currency-converter {
+    width: 100%;
+  }
+
+  canvas {
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 20px;
+  }
+
+  nav ul li a {
+    font-size: 14px;
+  }
+
+  .screen {
+    padding: 40px 10px;
+  }
+
+  .currency-converter label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .currency-converter button {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
+/* --- Новые стили для grid-two --- */
+.grid-two {
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr; /* две равные колонки */
+  align-items: center;           /* выровнять контент по вертикали */
+  gap: 40px;                      /* расстояние между колонками */
+  /* сохраняем внутренние отступы секции */
+  padding: 60px 20px;
+  border-bottom: 1px solid #1f2235;
+  justify-items: center;
+}
+
+/* Если необходимо, чтобы на узких экранах грид был в одну колонку */
+@media (max-width: 768px) {
+  .grid-two {
+    grid-template-columns: 1fr;
+    text-align: center;  /* выравнивание текста по центру, когда одну колонку */
+  }
+
+  .grid-two .grid-image,
+  .grid-two .grid-text {
+    margin-bottom: 20px;
+  }
+}
+
+/* Дополнительная стилизация для содержимого грид-колонок */
+.grid-two .grid-image img {
+  justify-content: center;
+  width: 250px;
+  height: auto;
+  border-radius: 8px;          /* скругление углов при желании */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.grid-two .grid-text h1 {
+  font-size: 2rem;             /* можно подкорректировать размер заголовка */
+  color: #1e90ff;              /* тот же голубой акцент */
+  margin-bottom: 20px;
+}
+
+.grid-two .grid-text p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #d4d4d4;
+  margin-bottom: 15px;
+}
+
+.grid-two .grid-text a {
+  color: #1e90ff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.grid-two .grid-text a:hover {
+  color: #187bcd;
+}
+.screen p a,
+.screen li a {
+  color: #1e90ff;                   /* основной синий акцент */
+  text-decoration: none;            /* убираем стандартное подчёркивание */
+
+  transition: color 0.3s,           /* плавный переход цвета текста */
+              border-color 0.3s;    /* плавный переход цвета линии */
+}
+
+/* 2) При наведении слегка меняем цвет ссылки и цвет «линиии» */
+.screen p a:hover,
+.screen li a:hover {
+  color: #187bcd;                   /* более тёмный синий при hover */
+  border-bottom-color: #187bcd;     /* меняем цвет нижней границы */
+}
+
+.screen p a {
+  padding-bottom: 2px;              /* создаёт пространство между текстом и рамкой */
+}
+
+
+a {
+  color: #1e90ff;
+  text-decoration: none;
+
+  transition: color 0.3s, border-color 0.3s;
+}
+a:hover {
+  color: #187bcd;
+  border-bottom-color: #187bcd;
+}
+  .screen.fancy {
+      background: linear-gradient(135deg, #12121e 0%, #1f1f3a 100%);
+      padding: 60px 20px;
+      border-bottom: 1px solid #2a2a45;
+      color: #e0e0e0;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .screen.fancy h2 {
+      font-family: 'Caveat', cursive;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #ffbf00; /* ярко-жёлтый для контраста */
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .screen.fancy .intro {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 25px;
+      text-align: justify;
+      position: relative;
+      padding-left: 40px;
+    }
+    .screen.fancy .intro::before {
+      content: "❝";
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 2.5rem;
+      color: #ffbf00;
+      font-family: 'Caveat', cursive;
+      line-height: 1;
+    }
+
+    .screen.fancy .fancy-list {
+      list-style: none;
+      margin-bottom: 25px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .screen.fancy .fancy-list li {
+      background-color: #2a2a45;
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      position: relative;
+      transition: transform 0.3s, background-color 0.3s;
+      font-weight: 500;
+    }
+    .screen.fancy .fancy-list li:hover {
+      transform: translateY(-5px);
+      background-color: #3a3a60;
+    }
+    .screen.fancy .fancy-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      color: #ffbf00;
+    }
+    .screen.fancy .fancy-list li span {
+      margin-left: 25px; /* чтобы текст не накладывался на галочку */
+      color: #f0f0f0;
+    }
+
+    .screen.fancy .details {
+      font-size: 1rem;
+      line-height: 1.6;
+      text-align: justify;
+      margin-bottom: 30px;
+    }
+    .screen.fancy .details strong {
+      color: #ffbf00;
+    }
+
+    .screen.fancy .more-link {
+      display: inline-block;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      color: #ffbf00;
+      text-decoration: none;
+      border-bottom: 2px solid #ffbf00;
+      transition: color 0.3s, border-color 0.3s;
+    }
+    .screen.fancy .more-link:hover {
+      color: #ffd966;
+      border-color: #ffd966;
+    }

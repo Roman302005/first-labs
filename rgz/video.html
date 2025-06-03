@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Видео — Smart Tech Group</title>
+
+  <!-- Google Fonts: Playfair Display (для заголовка) и Lato (для текста) -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Основной CSS -->
+  <link rel="stylesheet" href="../main.css" />
+
+  <!-- Встроенные стили для страницы «Видео» -->
+  <style>
+    /* === Общие отступы и фон для main === */
+    main {
+      padding: 40px 20px;
+      background: #0f111a;
+    }
+
+    /* Заголовок страницы */
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: #ffbf00;
+      text-align: center;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Контейнер для видео */
+    .video-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: #1f2235;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+      position: relative;
+      /* Отношение сторон 16:9:
+         padding-bottom = 9/16 * 100% ≈ 56.25% */
+      padding-bottom: 56.25%;
+      height: 0;
+    }
+
+    /* Сам iframe подстраивается под контейнер */
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Адаптив для заголовка на узких экранах */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      main {
+        padding: 30px 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.75rem;
+      }
+      main {
+        padding: 20px 10px;
+      }
+    }
+  </style>
+</head>
+<body id="top">
+  <!-- ===== HEADER ===== -->
+  <header>
+    <nav>
+      <div class="logo">smart<br />tech<br />group</div>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="about.html">О компании</a></li>
+        <li><a href="news.html">Новости</a></li>
+        <li><a href="currency.html">Курс валют</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
+        <li><a href="video.html">Видео</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main>
+    <h1>Видео о компании</h1>
+    <div class="video-container">
+      <!-- 
+        Пример корректного YouTube-iframe:
+        Замените "dQw4w9WgXcQ" на идентификатор нужного ролика.
+      -->
+    <iframe
+      src="https://rutube.ru/play/embed/aad50b28ff3c758616ef2d138d821027"
+      allowfullscreen
+      frameborder="0"
+      width="100%"
+      height="100%">
+    </iframe>
+
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>&copy; 2025 Smart Tech Group</p>
+  </footer>
+
+  <!-- Кнопка «Наверх» -->
+  <a href="#top" class="back-to-top">↑ Наверх</a>
+</body>
+</html>
