@@ -12,12 +12,14 @@
 <body>
     <header>
         НГТУ, ФБ, Лабораторная работа 8
-        <hr>
     </header>
     
     <main>
         <div id="app">
             <h1 :title="messageRus">{{ message }}</h1>
+            <p>Счётчик: {{ counter }}</p>
+            <button @click="incCounter">++</button>
+            <button @click="decCounter">--</button>
         </div>
     </main>
 
@@ -30,9 +32,17 @@
                 return {
                     message: 'Hello!',
                     messageRus: 'Привет!',
+                    counter: 1,
                 }
             },
-
+            methods: {
+                incCounter() {
+                    this.counter++;
+                },
+                decCounter() {
+                    this.counter--;
+                }
+            }
         }).mount("#app");
     </script>
 </body>
