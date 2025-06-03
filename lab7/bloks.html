@@ -8,11 +8,17 @@
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="../favicon-16x16.png">
     <link rel="shortcut icon" href="../favicon-32x32.png">
-    <style>
-        
-
-
-    </style> 
+    <script>
+        function addNewBlock() {
+            let newBlock = document.createElement('div');
+            newBlock.style.border = '1.5px solid red';
+            newBlock.style.margin = '15px';
+            newBlock.style.padding = '12px';
+            newBlock.style.height = '50px';
+            newBlock.style.backgroundColor = 'yellow';
+            document.querySelector('main').appendChild(newBlock);
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -20,9 +26,7 @@
     </header>
 
     <main>
-        <ul>
-            <li><a href="bloks.html">Добавление блоков</a></li>
-        </ul>
+        <button onclick="addNewBlock()">Добавить блок</button>
     </main>
     <footer>
         &copy; Лелюх Роман, ФБИ-34, 2 курс, 2025
