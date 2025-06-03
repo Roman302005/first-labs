@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лелюх Роман Вячеславович. Лабораторная 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-16x16.png">
+    <link rel="shortcut icon" href="../favicon-32x32.png">
+    <script src="dollar-data.js"></script>
+    <script>
+        function showExchange(button) {
+            let table = document.getElementById('dollar-table');
+            let sum = 0;
+            
+            for (let i = 0; i < exchange.length; i++) {
+                const tr = document.createElement('tr');
+                const td = document.createElement('td');
+                const value = parseFloat(exchange[i]);
+                td.innerText = value.toFixed(2);
+                tr.appendChild(td);
+                table.appendChild(tr);
+                sum += value;
+            }
+            let average = sum / exchange.length;
+            average = average.toFixed(2);
+            const detail = document.getElementById('detail');
+            detail.textContent = `Среднее значение: ${average}`;
+            button.style.display = 'none';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+
+    <main>
+        <button onclick="showExchange(this)">Курс доллара</button>
+        <table border="1" id="dollar-table"></table>
+        <div id="detail"></div>
+    </main>
+    <footer>
+        &copy; Лелюх Роман, ФБИ-34, 2 курс, 2025
+    </footer>
+</body>
+</html>
